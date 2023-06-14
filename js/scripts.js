@@ -34,19 +34,16 @@ let pokemonList = [
         height: 0.5, 
         types: ['water']
     }
-];
-
+]
    // for (i=0; i<pokemonList.length; i++) {
     //   document.write(pokemonList[i].name + ', ');
   //  }
 
     for (i=0; i<pokemonList.length; i++) {
         if (pokemonList[i].height > 1){
-            //document.write(pokemonList[i].name + pokemonList[i].height + ' - Wow, that is big! ');
-       
-       document.write(pokemonList[i].name + ' (' + 'height: ' + pokemonList[i].height + ') - Wow, that is big! ');
+        document.write('<p>' + pokemonList[i].name + ' (' + 'height: ' + pokemonList[i].height + ') - Wow, that is big!</p>');
         } else {
-            document.write(pokemonList[i].name + ' (' + 'height: ' + pokemonList[i].height + ') ');
+            document.write('<p>' + pokemonList[i].name + ' (' + 'height: ' + pokemonList[i].height + ') </p>');
         }
     }
     
