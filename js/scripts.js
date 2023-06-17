@@ -39,11 +39,21 @@ let pokemonList = [
     //   document.write(pokemonList[i].name + ', ');
   //  }
 
-    for (i=0; i<pokemonList.length; i++) {
-        if (pokemonList[i].height > 6){
-        document.write('<p>' + pokemonList[i].name + ' (' + 'height: ' + pokemonList[i].height + ') - Wow, that is big!</p>');
-        } else {
-            document.write('<p>' + pokemonList[i].name + ' (' + 'height: ' + pokemonList[i].height + ') </p>');
-        }
-    }
+    //for (i=0; i<pokemonList.length; i++) {
+      //  if (pokemonList[i].height > 6){
+        //  document.write('<p>' + pokemonList[i].name + ' (' + 'height: ' + pokemonList[i].height + ') - Wow, that is big!</p>');
+     //   } else {
+        //  document.write('<p>' + pokemonList[i].name + ' (' + 'height: ' + pokemonList[i].height + ') </p>');
+     //   }
+  //  }
+
+  pokemonList.forEach(pokemon => {
+     if (pokemon.height > 6) {
+    document.write('<p>' + pokemon.name + ' (' + 'height: ' + pokemon.height + ') - Wow, that is big!</p>');
+  }else{
+    document.write('<p>' + pokemon.name + ' (' + 'height: ' + pokemon.height + ')</p>')
+  }
+});
+
+
     
