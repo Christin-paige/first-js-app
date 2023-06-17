@@ -51,7 +51,7 @@ return {
 
 })();
 console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Pikachu' });
+pokemonRepository.add({ name: 'Pikachu', height: 0.4, types: 'electric' });
 console.log(pokemonRepository.getAll());
    // for (i=0; i<pokemonList.length; i++) {
     //   document.write(pokemonList[i].name + ', ');
