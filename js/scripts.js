@@ -44,12 +44,38 @@ function getAll () {
 function add (pokemon) {
     pokemonList.push(pokemon);
 }
+
 return {
     getAll: getAll,
-    add: add
+    add: add, 
+    addListItem: addListItem,
 };
 
+
+
+function addListItem(pokemon) {
+    let ul = document.querySelector('ul');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText= pokemon.name;
+    button.classList.add('button-class');
+    listItem.appendChild(button);
+    ul.appendChild(listItem);
+        //adding event listener to interact with function showDetails (line 68)
+    button.addEventListener('click', showDetails(pokemon));
+        
+    };
+
+     
+    function showDetails(pokemon) {
+        console.log(pokemon);
+    };
+   
+    
+
 })();
+
+
 console.log(pokemonRepository.getAll());
 pokemonRepository.add({ name: 'Pikachu', height: 0.4, types: 'electric' });
 console.log(pokemonRepository.getAll());
@@ -68,9 +94,13 @@ console.log(pokemonRepository.getAll());
  
 
   pokemonRepository.getAll().forEach(pokemon => {
-     if (pokemon.height > 6) {
-    document.write('<p>' + pokemon.name + ' (' + 'height: ' + pokemon.height + ') - Wow, that is big!</p>');
-  }else{
-    document.write('<p>' + pokemon.name + ' (' + 'height: ' + pokemon.height + ')</p>')
-  }
+     //if (pokemon.height > 6) {
+        console.log(pokemon);
+        pokemonRepository.addListItem(pokemon)
+    //document.write('<p>' + pokemon.name + ' (' + 'height: ' + pokemon.height + ') - Wow, that is big!</p>');
+ // }else{
+   // document.write('<p>' + pokemon.name + ' (' + 'height: ' + pokemon.height + ')</p>')
+  
+  
+  
 });
