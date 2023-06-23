@@ -47,7 +47,7 @@ function add(pokemon) {
         return response.json();
     }).then(function (details) {
         //here are the details
-        item.imageUrl = details.sprites.front_default;
+        item.imgUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
     }).catch(function (e) {
@@ -84,19 +84,18 @@ function addListItem(pokemon) {
         //adding event listener to interact with function showDetails (line 68)
     button.addEventListener('click', function(event) {
         showDetails(pokemon);
+    
+
     });
 }
 
 })();
-
-pokemonRepository.add({name: 'Pikachu', height: 0.4, types: 'electric' });
-
 
  
 pokemonRepository.loadList().then(function() {
     //data is fetched from API
   pokemonRepository.getAll().forEach(pokemon => {
     pokemonRepository.addListItem(pokemon);//API data will be
-    //added to the pokemonList with the add (from earlier) function
+    //added to the pokemonList with the add (from earlier return) function
   });
 });
