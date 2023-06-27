@@ -102,7 +102,7 @@ function getAll () {
         let contentElement = document.createElement('p');
             contentElement.innerText = 'height ' + pokemon.height;
         let imageElement = document.createElement('img');
-           imageElement.setAttribute = ('src', pokemon.imageUrl);
+           imageElement.setAttribute('src', pokemon.imageUrl);
             imageElement.setAttribute('alt', 'image of pokemon')
       
 
