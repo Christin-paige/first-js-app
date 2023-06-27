@@ -66,9 +66,10 @@ function getAll () {
         return response.json();
     }).then(function (details) {
         //here are the details
-        pokemon.imageUrl = details.sprites.front_default;
-        pokemon.height = details.height;
-        pokemon.types = details.types;
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = details.types;
+        item.weight = details.weight;
     }).catch(function (e) {
         console.error(e);
     });
@@ -96,22 +97,23 @@ function getAll () {
             closeButtonElement.classList.add('modal-close');
             closeButtonElement.innerText = 'Close';
             closeButtonElement.addEventListener('click', hideModal);
-        
+       
+            //creating elements that will be inside of modal
         let titleElement = document.createElement('h1');
             titleElement.innerText = (pokemon.name);
+        
         let contentElement = document.createElement('p');
-            contentElement.innerText = 'height ' + pokemon.height;
-        let imageElement = document.createElement('img');
-           imageElement.setAttribute('src', pokemon.imageUrl);
-            imageElement.setAttribute('alt', 'image of pokemon')
-      
+            contentElement.innerText = ('Height = ' + pokemon.height + ' Weight = ' + pokemon.weight);
+        
+
+      let imageElement = document.createElement('img');
+          imageElement.src = pokemon.imageUrl;
 
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
         modal.appendChild(contentElement);
         modal.appendChild(imageElement);
         modalContainer.appendChild(modal);
-
         modalContainer.classList.add('is-visible');
       };
             

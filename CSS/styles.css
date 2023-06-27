@@ -1,10 +1,16 @@
 body {
     border: solid 2px;
     border-width: 2px;
+    background-color: #f9f9fd;
+    opacity: 0.9;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f9f9fd 5px ), repeating-linear-gradient( #e0e0e555, #e0e0e5 );
+
 }
 /*designing the modal*/
 #modal-container {
    display:none;
+ 
+  
 }
 #modal-container.is-visible {
     position:fixed;
@@ -22,6 +28,8 @@ body {
     /*to center the modal*/
     display: grid;
     text-align: center;
+   
+    
 }
 .modal {
     margin: auto;
@@ -32,6 +40,9 @@ body {
     width: 100%;
     max-width: 700px;
     text-align: left;
+    border: 1px solid;
+    border-radius: 10px;
+ 
 }
 /*close button*/
 .modal-close {
@@ -44,26 +55,43 @@ body {
 
 .modal h1 {
     margin-top: 0;
+    text-align: center;
+    border-bottom: 1px solid black;
+    text-transform: uppercase;
+    
 }
 
 .modal p {
     margin-bottom: 0;
+    text-align: center;
+    padding-right: 40px;
 }
 
 
 h1 {
     text-align: center;
+   
+   
+   
+   
 }
 .button-class {
+    background-color: white;
     width: 300px;
     height: 50px;
     border-width: 5px;
     border-color: pink;
     margin: 2px;
+    text-transform: uppercase;
+   
+    
     
 
 }
 ul {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-around;
     list-style-type: none;
     text-align: center;
 }
