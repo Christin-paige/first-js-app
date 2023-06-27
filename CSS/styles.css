@@ -1,6 +1,5 @@
 body {
-    border: solid 2px;
-    border-width: 2px;
+   
     background-color: #f9f9fd;
     opacity: 0.9;
     background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f9f9fd 5px ), repeating-linear-gradient( #e0e0e555, #e0e0e5 );
