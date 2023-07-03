@@ -1,17 +1,23 @@
 body {
-   
-    background-color: #f9f9fd;
-    opacity: 0.9;
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f9f9fd 5px ), repeating-linear-gradient( #e0e0e555, #e0e0e5 );
+   margin-top: 100px;
+   margin-left: 150px;
+   background: rgb(231,21,41);
+background: radial-gradient(circle, rgba(231,21,41,0.7917760854341737) 38%, rgba(133,6,6,1) 100%);
+  
+  
+ 
 
 }
-/*designing the modal*/
-#modal-container {
-   display:none;
- 
-  
+
+.navbar-brand {
+    font-size: 40px;
+    font-family: fantasy;
+    font-weight: bold;
+   
 }
-#modal-container.is-visible {
+
+
+.modal-dialog.is-visible {
     position:fixed;
     padding: 20px;
     box-sizing: border-box;
@@ -27,23 +33,28 @@ body {
     /*to center the modal*/
     display: grid;
     text-align: center;
-   
+  
     
 }
-.modal {
-    margin: auto;
-    display: inline-block;
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
     box-sizing: border-box;
     background: #fff;
     padding: 15px;
-    width: 100%;
+    
     max-width: 700px;
-    text-align: left;
-    border: 1px solid;
+   
+
+    border: 5px solid;
     border-radius: 10px;
+   font-family: fantasy;
  
 }
-/*close button*/
+
+
 .modal-close {
     float: right;
     border: 0;
@@ -52,42 +63,27 @@ body {
     text-decoration: underline;
 }
 
-.modal h1 {
-    margin-top: 0;
+.modal-title {
     text-align: center;
     border-bottom: 1px solid black;
     text-transform: uppercase;
     
 }
 
-.modal p {
-    margin-bottom: 0;
-    text-align: center;
-    padding-right: 40px;
-}
 
 
-h1 {
-    text-align: center;
-   
-   
-   
-   
-}
-.button-class {
-    background-color: white;
+.btn {
     width: 300px;
     height: 50px;
     border-width: 5px;
-    border-color: pink;
     margin: 2px;
     text-transform: uppercase;
-   
-    
-    
 
 }
-ul {
+.btn-secondary {
+    align-items: center;
+}
+ul.list-group {
    display: flex;
    flex-flow: row wrap;
    justify-content: space-around;
@@ -95,3 +91,17 @@ ul {
     text-align: center;
 }
  
+.card-title {
+   
+    text-transform: uppercase;
+    font-family: fantasy;
+
+}
+.card {
+  
+    justify-content: space-between;
+    border-width: 5px;
+    border-color: black;
+    
+}
+
