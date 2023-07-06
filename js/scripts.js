@@ -5,7 +5,7 @@ var pokemonList = [];//deleted array of pokemon
 var apiUrl = `https://pokeapi.co/api/v2/pokemon/?limit=150`;
 
 
-   
+
 function add(pokemon) {
     if (
         typeof pokemon === "object" &&
@@ -21,10 +21,8 @@ function getAll () {
     return pokemonList;
 }
 
-
     function addListItem (pokemon) {
-       pokemonRepository.loadDetails(pokemon)
-       .then(function(){
+       pokemonRepository.loadDetails(pokemon).then(function(){
         var $row = $(".row");
         var $card = $('<div class="card" style="width:400px"></div>');
         var $image = $(
@@ -33,23 +31,42 @@ function getAll () {
         var $cardBody = $('<div class="card-body"></div>');
 
         var $cardTitle = $("<h4 class='card-title' >" + 
-        pokemon.name + "</h4>")
-        var $seeProfile = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">See Profile</button>'
+        pokemon.name + "</h4>");
+        var $seeProfile = $('<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#pokemonModal">See Profile</button>'
         );
 
         $row.append($card);
         $card.append($image);
         $card.append($cardBody);
-        $card.body.append($cardTitle);
+        $cardBody.append($cardTitle);
         $cardBody.append($seeProfile);
 
         $seeProfile.on("click", function(event) {
             showDetails(pokemon);
          });
+         
       });
+     
    }
+//this is to make the search bar interactive
+   var userInput = $('#input');
 
+   //using 'keyup' in the event listener for when the user typesn a pokemon name in the 
+   //search bar
+$(userInput).on('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+
+//filtering through the pokemon list based on the user input
+   var filteredPokemon = pokemonList.filter((pokemon)  =>{
+        return pokemon.name.toLowerCase().includes(searchString);
     
+    });
+
+    //everything works up until here.  I can't figure out 
+    //the correct function to call the filtered pokemon variable
+   showDetails(filteredPokemon);
+} );
+  
         function showDetails(item) {
 
             pokemonRepository.loadDetails(item).then(function () {
@@ -57,6 +74,7 @@ function getAll () {
                 showModal(item);
             });
         }
+
         function loadList() {
             return $.ajax(apiUrl)
             .then(function (json) {
@@ -73,9 +91,8 @@ function getAll () {
                 console.error(e);
             });
         }
-    
-     
-
+   
+   
 
 
    //this function will add details other than name to each pokemon
@@ -93,32 +110,19 @@ function getAll () {
         for (var i = 0; i < details.types.length; i++) {
             item.types.push(details.types[i].type.name);
         }
-        item.weight = details.weight;
+       
         item.abilities = [];
         for (var i = 0; i < details.abilities.length; i++) {
         item.abilities.push(details.abilities[i].ability.name);
         }
+        item.weight = details.weight;
     })
-
-    // item.types = details.types.map(function (type) {
-      //   return type.type.name;
-    //}).join(',');
-        
-        
-       
-    
-    .catch(function (e) {
-        console.error(e);
-    });
-   }
- 
-      
-     
- //  $('[data-toggle="modal"]').on('click', function(){
-   // let targetSelector = $(this).attr('data-target');
-    //$(targetSelector).modal('show'); // Bootstrap’s own function to make the modal appear
-  //});
+   .catch(function (e) {
+    console.error(e);
+   })
+}
   
+
     function showModal(item) {
      
        let modalTitle = $(".modal-title");
@@ -163,7 +167,8 @@ function getAll () {
         loadDetails: loadDetails,
         showModal: showModal,
     };
-  
+
+
        
 })();
 
@@ -177,32 +182,4 @@ pokemonRepository.loadList().then(function() {
   });
 
 
-
-var $search = $('filter-search');
-var cache = [];
-
-$('.card-title').each(function() {
-    cache.push({
-        element: this,
-        text: this.innerText.trim().toLowerCase()
-    });
-});
-function filter() {
-    var query = this.value.trim().toLowerCase();
-
-
-    cache.forEach(function(card) {
-        var index = 0;
-        if (query) {
-            index = card.text.indexOf(query);
-        }
-    card.element.closest('.card')[index === -1 ? 'hide' : 'show']()
-})
-    }
-
-    if ('oninput' in $search[0]) {
-        $search.on('input', filter);
-    }else {
-        $search.on('keyup', filter);
-    }
 });

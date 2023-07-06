@@ -15,7 +15,11 @@ background: radial-gradient(circle, rgba(231,21,41,0.7917760854341737) 38%, rgba
     font-weight: bold;
    
 }
-
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 
 .modal-dialog.is-visible {
     position:fixed;
