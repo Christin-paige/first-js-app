@@ -22,7 +22,7 @@ function getAll () {
 }
 
     function addListItem (pokemon) {
-       pokemonRepository.loadDetails(pokemon).then(function(){
+       loadDetails(pokemon).then(function(){
         var $row = $(".row");
         var $card = $('<div class="card" style="width:400px"></div>');
         var $image = $(
@@ -64,12 +64,15 @@ $(userInput).on('keyup', (e) => {
 
     //everything works up until here.  I can't figure out 
     //the correct function to call the filtered pokemon variable
-   showDetails(filteredPokemon);
+  // showDetails(filteredPokemon);
+  getElementsByClassName('row').innerHTML = 'you did a search'
+
+ 
 } );
   
         function showDetails(item) {
 
-            pokemonRepository.loadDetails(item).then(function () {
+            loadDetails(item).then(function () {
                 console.log(item);
                 showModal(item);
             });
