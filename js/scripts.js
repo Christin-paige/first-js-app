@@ -11,7 +11,7 @@ function add(pokemon) {
         typeof pokemon === "object" &&
         "name" in pokemon &&
         "detailsUrl" in pokemon
- ) {
+ ) { 
     pokemonList.push(pokemon);
  }else{
     console.log('pokemon is not correct');
@@ -44,10 +44,8 @@ function getAll () {
 
         $seeProfile.on("click", function(event) {
             showDetails(pokemon);
-         });
-         
-      });
-     
+         });   
+      });     
    }
 //this is to make the search bar interactive
    var userInput = $('#input');
@@ -68,24 +66,12 @@ addListItem(pokemonList);//taking the whole list of pokemon and calling each ind
 filteredPokemon.forEach(function(pokemon) {
     addListItem(pokemon);//adding pokemon from addListItem back into "box"
 });
-
-   
-    //everything works up until here.  I can't figure out 
-    //the correct function to call the filtered pokemon variable
-  // showDetails(filteredPokemon);
-//innerHTML will change the text
-//at this point call addListItem for each pokemon in filtered pokemon
-//put pokemon into one box with addListItem
-//when someone searches get rid of everything in the box
-//put the filtered pokemon 
-//list the names, remove, put new names
  
 } );
   
         function showDetails(item) {
-
-            loadDetails(item).then(function () {
-               // console.log(item);
+           loadDetails(item).then(function () {
+             
                 showModal(item);
           });
         }
@@ -107,8 +93,6 @@ filteredPokemon.forEach(function(pokemon) {
             });
         }
    
-   
-
 
    //this function will add details other than name to each pokemon
    function loadDetails(item) {
@@ -125,16 +109,12 @@ filteredPokemon.forEach(function(pokemon) {
         for (var i = 0; i < details.types.length; i++) {
             item.types.push(details.types[i].type.name);
         }
-       
         item.abilities = [];
         for (var i = 0; i < details.abilities.length; i++) {
         item.abilities.push(details.abilities[i].ability.name);
         }
         item.weight = details.weight;
     })
- //  .catch(function (e) {
-   // console.error(e);
-//   })
 }
   
 
@@ -143,12 +123,9 @@ filteredPokemon.forEach(function(pokemon) {
        let modalTitle = $(".modal-title");
        let modalBody = $(".modal-body");  
       
-       
        modalTitle.empty();
        modalBody.empty();
      
-      
-      
     //creating element for name
     let nameElement = $("<h1>" + item.name + "</h1>");
     //creating img in modal content
@@ -182,8 +159,6 @@ filteredPokemon.forEach(function(pokemon) {
         loadDetails: loadDetails,
         showModal: showModal,
     };
-
-
        
 })();
 
@@ -195,6 +170,4 @@ pokemonRepository.loadList().then(function() {
     //added to the pokemonList with the add (from earlier return) function
     
   });
-
-
 });
