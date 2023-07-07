@@ -22,6 +22,7 @@ function getAll () {
 }
 
     function addListItem (pokemon) {
+      
        loadDetails(pokemon).then(function(){
         var $row = $(".row");
         var $card = $('<div class="card" style="width:400px"></div>');
@@ -50,7 +51,7 @@ function getAll () {
    }
 //this is to make the search bar interactive
    var userInput = $('#input');
-
+  
    //using 'keyup' in the event listener for when the user typesn a pokemon name in the 
    //search bar
 $(userInput).on('keyup', (e) => {
@@ -58,24 +59,35 @@ $(userInput).on('keyup', (e) => {
 
 //filtering through the pokemon list based on the user input
    var filteredPokemon = pokemonList.filter((pokemon)  =>{
-        return pokemon.name.toLowerCase().includes(searchString);
+        return pokemon.name.toLowerCase().includes(searchString)
     
     });
 
+addListItem(pokemonList);//taking the whole list of pokemon and calling each individually
+   row.innerHTML = ""; //clearing the "box"
+filteredPokemon.forEach(function(pokemon) {
+    addListItem(pokemon);//adding pokemon from addListItem back into "box"
+});
+
+   
     //everything works up until here.  I can't figure out 
     //the correct function to call the filtered pokemon variable
   // showDetails(filteredPokemon);
-  getElementsByClassName('row').innerHTML = 'you did a search'
-
+//innerHTML will change the text
+//at this point call addListItem for each pokemon in filtered pokemon
+//put pokemon into one box with addListItem
+//when someone searches get rid of everything in the box
+//put the filtered pokemon 
+//list the names, remove, put new names
  
 } );
   
         function showDetails(item) {
 
             loadDetails(item).then(function () {
-                console.log(item);
+               // console.log(item);
                 showModal(item);
-            });
+          });
         }
 
         function loadList() {
@@ -120,9 +132,9 @@ $(userInput).on('keyup', (e) => {
         }
         item.weight = details.weight;
     })
-   .catch(function (e) {
-    console.error(e);
-   })
+ //  .catch(function (e) {
+   // console.error(e);
+//   })
 }
   
 
