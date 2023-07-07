@@ -2,11 +2,7 @@ body {
    margin-top: 100px;
    margin-left: 150px;
    background: rgb(231,21,41);
-background: radial-gradient(circle, rgba(231,21,41,0.7917760854341737) 38%, rgba(133,6,6,1) 100%);
-  
-  
- 
-
+  background: radial-gradient(circle, rgba(231,21,41,0.7917760854341737) 38%, rgba(133,6,6,1) 100%);
 }
 
 .navbar-brand {
@@ -48,10 +44,7 @@ background: radial-gradient(circle, rgba(231,21,41,0.7917760854341737) 38%, rgba
     box-sizing: border-box;
     background: #fff;
     padding: 15px;
-    
     max-width: 700px;
-   
-
     border: 5px solid;
     border-radius: 10px;
    font-family: fantasy;
@@ -84,17 +77,7 @@ background: radial-gradient(circle, rgba(231,21,41,0.7917760854341737) 38%, rgba
     text-transform: uppercase;
 
 }
-.btn-secondary {
-    align-items: center;
-}
-ul.list-group {
-   display: flex;
-   flex-flow: row wrap;
-   justify-content: space-around;
-    list-style-type: none;
-    text-align: center;
-}
- 
+
 .card-title {
    
     text-transform: uppercase;
