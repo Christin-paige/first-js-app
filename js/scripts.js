@@ -13,9 +13,7 @@ function add(pokemon) {
         "detailsUrl" in pokemon
  ) { 
     pokemonList.push(pokemon);
- }else{
-    console.log('pokemon is not correct');
-   }
+ }
 }
 function getAll () {
     return pokemonList;
@@ -85,7 +83,6 @@ filteredPokemon.forEach(function(pokemon) {
                         detailsUrl: item.url,
                     };
                     add(pokemon);
-                    console.log(pokemon);
                 });
             })
             .catch(function (e) {
