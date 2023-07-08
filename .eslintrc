@@ -1,12 +1,8 @@
-{
-    "env": {
-      "es6": true,
-      "browser": true
-    },
+
+
+  {
     "extends": [
-      "eslint:recommended"
-    ],
-    "rules": {
-      "quotes": ["error", "double"]
-    }
+      "some-other-config-you-use",
+      "prettier"
+    ]
   }
